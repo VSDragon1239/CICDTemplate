@@ -24,7 +24,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Generate spec file (if needed)
+      - name: Generate spec file
         run: |
           python generate_spec.py project_dirs MainProject --main-script MainProject/manage.py --onefile
 
