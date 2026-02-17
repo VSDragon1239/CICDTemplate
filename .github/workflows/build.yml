@@ -26,16 +26,11 @@ jobs:
 
       - name: Generate spec file (if needed)
         run: |
-          if [ -f "generate_spec.py" ]; then
-            python generate_spec.py
-          else
-            echo "No spec generation script found, assuming main.spec exists."
-          fi
-        shell: bash
+          python generate_spec.py project_dirs MainProject --main-script MainProject/manage.py --onefile
 
-      - name: Build with PyInstaller using spec
+      - name: Build with PyInstaller
         run: |
-          python generate_spec.py MainProject --main-script MainProject/manage.py --onefile
+          pyinstaller main.spec
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
