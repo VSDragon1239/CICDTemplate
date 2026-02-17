@@ -35,7 +35,6 @@ jobs:
 
       - name: Build with PyInstaller using spec
         run: |
-#          pyinstaller main.spec
           python generate_spec.py MainProject --main-script MainProject/manage.py --onefile
 
       - name: Upload build artifact
